@@ -5,10 +5,10 @@ class SeachBar extends Component {
    
     render(){
         return (
-            <div>
-                <input onChange={this.props.onChange}></input>
-                <button className="btn btn-primary" onClick={this.props.onSubmit}>Search</button>            
-            </div>
+            <form onSubmit={this.props.onSubmit} className="row">
+                <input className="col-8" onChange={this.props.onChange}></input>
+                <button className="btn btn-primary col-4 m-auto" type="submit">Search</button>            
+            </form>
         );
     }
 }
