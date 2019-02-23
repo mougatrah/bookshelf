@@ -8,7 +8,7 @@ class Header extends Component {
         return (
             <div className="row">
                 <h3 className="logoText">Book Search</h3>
-                <img src={logo} alt="logo" className="img-fluid col-4" />
+                <img src={logo} alt="logo" className="img col-4" />
 
             </div>
         );

@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
+
+// import axios from 'axios';
 // import Button from '../Button';
 
 import "./style.css"
 class BookPreview extends Component {
     render() {
+ 
         return (
             <div className="bookPrev">
+   <a className="myButton" target="_blank" rel="noopener noreferrer" href={this.props.link} >View</a>
 
-                <img className="bookImg" alt={this.props.title} src={this.props.src}></img>
-
+                    <button className="myButton" onClick={this.props.handleSave}>Save</button>
+                
+              
 
 
                 <div className="bookTitle" >{this.props.title}</div>
-                <a className="myButton" href={"/view/" + this.props.id}  >View</a>
-                <a className="myButton" href={"/API/save/" + this.props.id} >Save</a>
+                <small>{this.props.author}</small>
+                <img className="bookImg" alt={this.props.title} src={this.props.src}></img>
+
                 <div className="bookDesc" >{this.props.description}</div>
 
                 

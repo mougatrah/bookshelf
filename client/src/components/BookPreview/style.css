@@ -3,7 +3,7 @@
     display: block;
     margin: 1vh 1vw 1vh 1vw ;
     padding: 1vh 1vw 1vh 1vw ;
-    height: 25vh;
+    height: 33vh;
     overflow: hidden;
 
 }
@@ -13,7 +13,6 @@
     margin: 0vh 1vw;
     float: left;
     height: 100%;
-    
     width: auto;
 }
 
@@ -34,6 +33,8 @@
    background: gray;
    border-radius: 20%;
    padding: 0.5rem;
+   margin-left: 1rem;
+   border: solid thick black;
 }
 
 .bookDesc {
