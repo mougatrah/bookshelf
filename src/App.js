@@ -21,7 +21,7 @@ class App extends Component {
     }
 
   search() {
-    axios.get("https://www.googleapis.com/books/v1/volumes?q=" + this.state.searchTerm).then((results) => this.setState({bookResults: results.data.items[0], searchTerm: ""}))
+    axios.get("https://www.googleapis.com/books/v1/volumes?q=" + this.state.searchTerm).then((results) => this.setState({bookResults: results.data.items, searchTerm: ""}))
   }
 
   componentDidMount() { 
@@ -43,20 +43,18 @@ class App extends Component {
   render() {
     
           if(this.state.bookResults){
-            console.log(Object.keys(this.state.bookResults.volumeInfo));
-            var Books =  <BookDisplay 
-            src={this.state.bookResults.volumeInfo.imageLinks.thumbnail}
-            author={this.state.bookResults.volumeInfo.author}
-            link={this.state.bookResults.volumeInfo.author}
-            alt={"The bookcover for " + this.state.bookResults.volumeInfo.title}
-            title={this.state.bookResults.volumeInfo.title}
-            description={this.state.bookResults.volumeInfo.description}
-            />
+            console.log(Object.keys(this.state.bookResults[0].id) + this.state.bookResults[0].id);
+            var Books =   <BookDisplay 
+                  books={this.state.bookResults}
+              />
+
+           
           }
+
     return (
 
 
-      <div className="container">
+      <div className="App">
        
           <Header />
           <SearchBar onChange={this.handleSearchChange} onSubmit={this.handleSearchSubmit} />        

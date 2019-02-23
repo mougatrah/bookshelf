@@ -4,21 +4,22 @@ import BookPreview from '../BookPreview';
 class BookDisplay extends Component {
 
     render() {
+       var newBooks =  this.props.books.map((book, index) => {
+       
+       return (<BookPreview
+                key={index}
+                src={book.volumeInfo.imageLinks.thumbnail}
+                author={book.volumeInfo.author}
+                link={book.volumeInfo.author}
+                alt={"The bookcover for " + book.volumeInfo.title}
+                title={book.volumeInfo.title}
+                description={book.volumeInfo.description}
+                id={book.id}
+                />)
+            });
+        return (newBooks);
 
-        return (
-            <div className="row bookDisplay">
-                <BookPreview
-                    src={this.props.src}
-                    author={this.props.author}
-                    link={this.props.link}
-                    alt={"The bookcover for " + this.props.title}
-                    title={this.props.title}
-                    description={this.props.description}
-                />
-            </div>
-        );
-    }
-
+}
 }
 
 export default BookDisplay

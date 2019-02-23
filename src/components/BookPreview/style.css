@@ -1,9 +1,57 @@
 .bookPrev {
     background: green;
-  
+    display: block;
+    margin: 1vh 1vw 1vh 1vw ;
+    padding: 1vh 1vw 1vh 1vw ;
+    height: 25vh;
+    overflow: hidden;
+
 }
+
+
+.bookImg {
+    margin: 0vh 1vw;
+    float: left;
+    height: 100%;
+    
+    width: auto;
+}
+
+.bookTitle {
+    display: block;
+    text-decoration: underline;
+    width: 100%;     
+
+}
+.myButton:hover {
+    color: black;
+    text-decoration: none;
+    background: darkslategray;
+}
+.myButton {
+   color: black;
+    float: right;
+   background: gray;
+   border-radius: 20%;
+   padding: 0.5rem;
+}
+
+.bookDesc {
+    margin: 1vh 1vw;
+    
+    overflow: hidden;
+    
+    text-overflow: ellipsis;
+
+}
+
 
 .bookDisplay {
     background: red;
 }
 
+.logoText {
+    margin: 0 auto;
+    justify-self: center;
+    align-self: center;
+}
