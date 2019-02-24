@@ -4,7 +4,7 @@
   "description": "book search made with react",
   "main": "index.js",
   "scripts": {
-    "start": "cd backend && nodemon server",
+    "start": "cd backend && node server",
     "quick": "cd client && npm run build && cd ../backend && nodemon server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
