@@ -7,7 +7,7 @@ class SeachBar extends Component {
         return (
             <form onSubmit={this.props.onSubmit} className="row">
                 <input className="col-8" onChange={this.props.onChange}></input>
-                <button className="btn btn-primary col-4 m-auto" type="submit">Search</button>            
+                <input className="btn btn-primary col-4 m-auto" type="submit" value="Search"></input>            
             </form>
         );
     }

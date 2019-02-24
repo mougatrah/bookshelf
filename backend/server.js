@@ -31,18 +31,20 @@ app.use(express.static("public"));
 app.use(express.static("../client/build"));
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/newsroom", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bookshelf", { useNewUrlParser: true });
 
 // Routes
 
 
-// Route for getting all Articles from the db
-app.get("/saved", function(req, res) {
-  // Grab every document in the Articles collection
-  db.Books.find({})
-    .then(function(dbArticle) {
-      // If we were able to successfully find Articles, send them back to the client
-      res.json(dbArticle);
+// Route for getting all Book from the db
+app.get("/API/saved", function(req, res) {
+  console.log("UPSET")
+  // Grab every document in the Book collection
+  db.Book.find({})
+    .then(function(dbBook) {
+      // If we were able to successfully find Book, send them back to the client
+      console.log("BOOK" + dbBook)
+      res.json(dbBook);
     })
     .catch(function(err) {
       // If an error occurred, send it to the client
@@ -50,22 +52,33 @@ app.get("/saved", function(req, res) {
     });
 });
 
-app.post("/save", function(req, res){
-    db.Books.update({
-        title: req.query.title
-    },
-    {
-        title: req.query.title,
-        authors: req.query.authors,
-        description: req.query.description,
-        image: req.query.image,
-        link: req.query.link
-    },
-    {upsert: true})
+app.delete("/saved", function(req, res){
+  console.log(req.body)
+  db.Book.remove({
+    _id: mongoose.Types.ObjectId(req.body.id)
+  }).then((data) => res.json(data))
+
 })
 
-app.get('/', function(req, res) {
-  res.sendFile("../client/build/index.html");
+app.post("/save", function(req, res){
+
+    db.Book.update({
+        image: req.body.image
+    },
+    {
+        title: req.body.title,
+        authors: req.body.authors,
+        description: req.body.description,
+        image: req.body.image,
+        link: req.body.link
+    },
+    {upsert: true}).then((dbBook) => {
+      res.json(dbBook);
+    })
+});
+
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname,"..","client", "build", "index.html"));
 }); 
 
 // Start the server

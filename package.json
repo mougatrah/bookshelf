@@ -1,0 +1,26 @@
+{
+  "name": "bookshelf",
+  "version": "1.0.0",
+  "description": "book search made with react",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd backend && nodemon server",
+    "quick": "cd client && npm run build && cd ../backend && nodemon server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phelanmccall/bookshelf.git"
+  },
+  "keywords": [
+    "book",
+    "search",
+    "react"
+  ],
+  "author": "Phelan McCall",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phelanmccall/bookshelf/issues"
+  },
+  "homepage": "https://github.com/phelanmccall/bookshelf#readme"
+}
