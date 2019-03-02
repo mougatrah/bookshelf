@@ -10,7 +10,8 @@ class BookPreview extends Component {
     render() {
         return (
             <div className="bookPrev">
-                    <a className="myButton" target="_blank" rel="noopener noreferrer" href={this.props.link} >View</a>
+
+                    <a target="_blank" rel="noopener noreferrer" href={this.props.link}> <button className="myButton" >View</button> </a>
 
                     <button className="myButton" 
                             onClick={this.props.handleSave ? this.props.handleSave : this.props.handleDelete}
@@ -21,12 +22,14 @@ class BookPreview extends Component {
 
 
                 <div className="bookTitle" >{this.props.title}</div>
-                <div>{this.props.author}</div>
+
+                <div className="bookAuthor">{this.props.author}</div>
                 <img className="bookImg" alt={this.props.title} src={this.props.src}></img>
 
                 <div className="bookDesc" >{this.props.description}</div>
 
-                
+
+                   
             </div>
         );
     }

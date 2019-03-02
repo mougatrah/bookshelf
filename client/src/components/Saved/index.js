@@ -8,15 +8,7 @@ class Saved extends Component {
         super(props);
 
         this.state = {
-            saved: [{
-                title: "test",
-                authors: ["tester"],
-                description: "very nice",
-                link: "adssad",
-                image: "awdwasd",
-                id: "ID",
-                loading: true
-            }]
+            saved: null
         }
         this.handleDelete = this.handleDelete.bind(this);
     }
@@ -53,16 +45,22 @@ class Saved extends Component {
     }
 
     render() {
+        var saved;
+        if(this.state.saved){
+            saved = <SaveDisplay 
+            handleDelete={this.handleDelete}
+            books={this.state.saved}
+        />
+        } else {
+            saved = <h1 className="col-10">No saved books...</h1>
+        }
         
         return (
             <div>
                 <Header></Header>
-                <h1>Saved books:</h1>
-                <SaveDisplay 
-                  handleDelete={this.handleDelete}
-                  books={this.state.saved}
-                
-              />
+                {
+                    saved
+                }
             </div>
         );
     }

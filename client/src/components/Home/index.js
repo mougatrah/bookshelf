@@ -10,7 +10,7 @@ class Home extends Component {
 
     this.state = {
       bookResults: null,
-      searchTerm: "foundation"
+      searchTerm: ""
     }
 
     this.handleSearchChange = this.handleSearchChange.bind(this);
@@ -37,13 +37,15 @@ class Home extends Component {
       description: e.target.parentNode.childNodes[5].innerHTML,
       image: e.target.parentNode.childNodes[4].src
     };
+    e.target.parentNode.outerHTML = "";
+
     console.log(temp);
     axios({
       method: 'post',
       url: '/save',
       responseType: 'json',
       data: temp
-    }).then(function (response) {
+    }).then( (response) => {
       console.log(response);
     }).catch(function (err) {
       console.log(err);
@@ -51,7 +53,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.search();
+  
   }
 
   handleSearchChange(e) {
@@ -69,15 +71,16 @@ class Home extends Component {
   }
 
   render() {
+    var Books;
 
     if (this.state.bookResults) {
-      var Books = <BookDisplay
+       Books = <BookDisplay
         handleSave={this.handleSave}
         books={this.state.bookResults}
 
       />
-
-
+    } else {
+      Books = <h1 className="col-10">No search results...</h1>
     }
     return (
       <div>

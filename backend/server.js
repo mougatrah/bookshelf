@@ -3,11 +3,7 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 var bodyparser = require("body-parser");
 const path = require('path');
-// Our scraping tools
-// Axios is a promised-based http library, similar to jQuery's Ajax method
-// It works on the client and on the server
-var axios = require("axios");
-var cheerio = require("cheerio");
+
 var cors = require("cors");
 
 // Require all models
@@ -31,7 +27,9 @@ app.use(express.static("public"));
 app.use(express.static("../client/build"));
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bookshelf", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bookshelf", { useNewUrlParser: true }).catch((err) => {
+  console.log(err.message)
+});
 
 // Routes
 

@@ -36,3 +36,64 @@ html {
   font-size: 1rem;
 } */
 
+
+.bookPrev {
+  background: grey;
+  color: oldlace;
+  display: block;
+  margin: 1vh 1vw 1vh 1vw ;
+  padding: 1vh 1vw 1vh 1vw ;
+  height: auto;
+  overflow: hidden;
+  box-shadow: 5px 5px 8px black;
+
+}
+
+.bookPrev a {
+  color: white;
+  float: right;
+}
+
+.bookImg {
+  margin: 1vh 1vw;
+  float: left;
+  height: auto;
+  width: auto;
+  box-shadow: 5px 5px 8px black;
+}
+
+.bookTitle {
+  display: block;
+  text-decoration: underline;
+  width: 100%;     
+
+}
+.bookAuthor {
+  text-shadow: 2px 2px 2px #999;
+
+}
+
+.myButton:hover {
+  color: black;
+  text-decoration: none;
+  background: lightgrey;
+}
+.myButton {
+ color: black;
+  float: right;
+ border-radius: 20%;
+ padding: 0.5rem;
+ margin-left: 1rem;
+ box-shadow: 5px 5px black; 
+}
+
+.bookDesc {
+  padding: 0vh 3vw;
+  margin: 0 auto; 
+  overflow: hidden;
+  
+  text-overflow: ellipsis;
+  
+
+}
+
